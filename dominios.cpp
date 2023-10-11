@@ -130,22 +130,22 @@ void Texto::validar(string texto){
 
     for(int currPos = 1; currPos < texto.length(); currPos++){
         char Char_Atual = texto[currPos];
-        bool FormatoValido = true;
+        bool FormatoValido = false;
 
 
-        if (!ChecaCaractere::e_maiuscula_sem_acento(Char_Atual)) {
+        if (ChecaCaractere::e_maiuscula_sem_acento(Char_Atual)) {
 
-            FormatoValido = false;
+            FormatoValido = true;
         }
 
-        if (!ChecaCaractere::e_minuscula_sem_acento(Char_Atual)) {
+        if (ChecaCaractere::e_minuscula_sem_acento(Char_Atual)) {
 
-            FormatoValido =false;
+            FormatoValido = true;
         }
 
-        if (!ChecaCaractere::e_digito(Char_Atual)) {
+        if (ChecaCaractere::e_digito(Char_Atual)) {
 
-            FormatoValido = false;
+            FormatoValido = true;
         }
 
 
@@ -159,9 +159,9 @@ void Texto::validar(string texto){
                 if (Char_Atual != ',' && Char_Atual != ';' && !ChecaCaractere::e_maiuscula_sem_acento(ProximoCaractere)){
                     throw invalid_argument("Combinação inválida");
                 }
-        }
+            }
 
-    }
+        }
 
         if (ChecaCaractere::e_embranco(Char_Atual)) {
             FormatoValido = true;
