@@ -102,7 +102,7 @@ bool ChecaCaractere::e_pontuacao(char caractere) {
 
 bool ChecaCaractere::e_digito (char caractere) {
     caractere_ascii = int(caractere);
-    if (caractere_ascii < 48 && caractere_ascii > 57){
+    if (caractere_ascii < 48 || caractere_ascii > 57){
         return false;
     }
         return true;
