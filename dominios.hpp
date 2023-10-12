@@ -1,3 +1,7 @@
+#ifndef DOMINIOS_H_INCLUDED
+#define DOMINIOS_H_INCLUDED
+
+
 #include <iostream>
 #include <stdexcept>
 
@@ -21,6 +25,7 @@ class Texto {
         string getTexto();
 };
 
+
 class ChecaCaractere{
     public:
 
@@ -39,3 +44,4 @@ class ChecaCaractere{
 };
 
 
+#endif // DOMINIOS_H_INCLUDED
