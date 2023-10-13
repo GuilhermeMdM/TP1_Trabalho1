@@ -1,7 +1,7 @@
 #include "dominios.hpp"
 #include <vector>
 
-//////Métodos da classe Senha///////
+//////MÃ©todos da classe Senha///////
 
 void Senha::validar(string senha) {
     char minusculas[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
@@ -16,7 +16,7 @@ void Senha::validar(string senha) {
     if (senha.length()!=5) {
         throw invalid_argument("Valor invalido");
     }
-    // Verificação de Caracteres Repetidos.
+    // VerificaÃ§Ã£o de Caracteres Repetidos.
     int CurrPos = 0;
     int incremento;
     int PosComparada;
@@ -71,7 +71,7 @@ void Senha::setValor(string senha) {
 
 
 
-// Métodos da Classe ChecaCaractere //
+// MÃ©todos da Classe ChecaCaractere //
 
 
 int ChecaCaractere::caractere_ascii = 0;
@@ -117,15 +117,15 @@ bool ChecaCaractere::e_embranco(char caractere) {
     return false;
 }
 
-///////////  Métodos da Classe Texto  ///////////
+///////////  MÃ©todos da Classe Texto  ///////////
 
 void Texto::validar(string texto) {
     if (texto.length() < 5 || texto.length() > 30) {
-        throw invalid_argument("Tamanho inválido");
+        throw invalid_argument("Tamanho invÃ¡lido");
     }
 
     if (!(ChecaCaractere::e_maiuscula_sem_acento(texto[0]))) {
-        throw invalid_argument("Primeira Letra Minúscula");
+        throw invalid_argument("Primeira Letra MinÃºscula");
     }
 
     for (int currPos = 1; currPos < texto.length(); currPos++) {
@@ -143,14 +143,14 @@ void Texto::validar(string texto) {
 
         } else if (ChecaCaractere::e_pontuacao(Char_Atual)) {
             FormatoValido = true;
-            // Verificação de espaços em sequência.
-            if (currPos < texto.length() - 1) {  // Não faz sentido checar o último caractere.
+            // VerificaÃ§Ã£o de espaÃ§os em sequÃªncia.
+            if (currPos < texto.length() - 1) {  // NÃ£o faz sentido checar o Ãºltimo caractere.
                 char ProximoCaractere = texto[currPos + 1];
                 if (ChecaCaractere::e_pontuacao(ProximoCaractere)) {
-                    throw invalid_argument("Pontuação em Seguida");
+                    throw invalid_argument("PontuaÃ§Ã£o em Seguida");
                 }
                 if (Char_Atual != ',' && Char_Atual != ';' && !ChecaCaractere::e_maiuscula_sem_acento(ProximoCaractere)) {
-                    throw invalid_argument("Combinação inválida");
+                    throw invalid_argument("CombinaÃ§Ã£o invÃ¡lida");
                 }
             }
 
@@ -159,12 +159,12 @@ void Texto::validar(string texto) {
             if (currPos < texto.length() - 1) {
                 char ProximoCaractere = texto[currPos + 1];
                 if (ChecaCaractere::e_embranco(ProximoCaractere)) {
-                    throw invalid_argument("Espaços Em sequência");
+                    throw invalid_argument("EspaÃ§os Em sequÃªncia");
                 }
             }
         }
         if (!FormatoValido) {
-            throw invalid_argument("Formato de Caractere inválido");
+            throw invalid_argument("Formato de Caractere invÃ¡lido");
         }
     }
 }
@@ -172,6 +172,52 @@ void Texto::validar(string texto) {
 void Texto::setTexto(string texto) {
     validar(texto);
     this->texto = texto;
+}
+
+//////MÃ©todos da classe Limite///////
+
+void Limite::validar(int limite) {
+    if (limite != LIMITE && limite != 2*LIMITE && limite != 3*LIMITE
+                         && limite != 4*LIMITE) {
+        throw invalid_argument("Limite invÃ¡lido.");
+    }
+}
+
+void Limite::setValor(int limite) {
+    validar(limite);
+    this->limite = limite;
+}
+
+//////MÃ©todos da classe Coluna///////
+
+void Coluna::validar(string coluna) {
+    if (coluna != "SOLICITADO" && coluna != "EM EXECUCAO" &&
+                                  coluna != "CONCLUIDO") {
+        throw invalid_argument("Coluna invÃ¡lida.");
+    }
+}
+
+void Coluna::setValor(string coluna) {
+    validar(coluna);
+    this->coluna = coluna;
+}
+
+//////MÃ©todos da classe Codigo///////
+
+void Codigo::validar(string codigo) {
+    if (codigo.length() != 4) {
+        throw invalid_argument("Tamanho de cÃ³digo invÃ¡lido.");
+    } else if (!(ChecaCaractere::e_maiuscula_sem_acento(codigo[0])) ||
+               !(ChecaCaractere::e_maiuscula_sem_acento(codigo[1])) ||
+               !(ChecaCaractere::e_digito(codigo[2])) ||
+               !(ChecaCaractere::e_digito(codigo[3]))) {
+        throw invalid_argument("Formato de cÃ³digo invÃ¡lido.");
+    }
+}
+
+void Codigo::setValor(string codigo) {
+    validar(codigo);
+    this->codigo = codigo;
 }
 
 
