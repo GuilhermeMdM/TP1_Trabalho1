@@ -21,6 +21,8 @@ inline string Senha::getValor() {
     return senha;
 }
 
+// Autor: 211038217
+
 class Texto {
     private:
         string texto;
