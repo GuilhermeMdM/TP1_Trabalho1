@@ -11,4 +11,5 @@ int main(){
     case TUTexto::FALHA  : cout << "FALHA   - CODIGO" << endl;
                             break;
     }
+    return 0;
 }

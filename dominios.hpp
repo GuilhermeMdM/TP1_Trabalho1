@@ -159,4 +159,20 @@ inline int Limite::getValor() const {
 }
 
 
+class Email {
+    private:
+        string email;
+        void validar (string);
+        static const int LIMITEMIN = 2;
+        static const int LIMITEMAXNOME = 10;
+        static const int LIMITEMAXDOM = 20;
+    public:
+        void setEmail(string);
+        string getEmail();
+};
+
+inline string Email::getEmail(){
+    return email;
+}
+
 #endif // DOMINIOS_H_INCLUDED
