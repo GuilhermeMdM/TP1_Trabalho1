@@ -145,7 +145,7 @@ void Texto::validar(string texto) {
 
         } else if (ChecaCaractere::e_pontuacao(Char_Atual)) {
             FormatoValido = true;
-            // Verificação de espaços em sequência.
+            // Verificação do caractere seguido à pontuação.
             // Não faz sentido checar a última posição.
             if (currPos < texto.length() - 1) {
                 char ProximoCaractere = texto[currPos + 1];
@@ -160,6 +160,8 @@ void Texto::validar(string texto) {
 
         } else if (ChecaCaractere::e_embranco(Char_Atual)) {
             FormatoValido = true;
+            // Verificação de espaços em sequência.
+            //Não faz sentido checar a última posição.
             if (currPos < texto.length() - 1) {
                 char ProximoCaractere = texto[currPos + 1];
                 if (ChecaCaractere::e_embranco(ProximoCaractere)) {
