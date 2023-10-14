@@ -1,7 +1,6 @@
 #ifndef DOMINIOS_H_INCLUDED
 #define DOMINIOS_H_INCLUDED
 
-
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -21,14 +20,30 @@ inline string Senha::getValor() {
     return senha;
 }
 
-// Autor: 211038217
+//Autor: 211038217
+
+/// @brief Padrão para informação em forma de caracteres
+/// @note Regras do formato:\n
+/// 5 a 30 Caracteres.\n
+/// Cada caractere é letra (A-Z,a-z),digito,sinal de pontuação(.,;?!) ou espaço em branco.\n
+/// Não há espaços em branco em sequência.\n
+/// Não há sinais de pontuação em sequência.\n
+/// Não há acentuação.\n
+/// Primeiro caractere é letra maiúscula.\n
+/// Primeiro caractere após sinal de pontuação (exceto vírgula ou ponto-e-vírgula) é letra maiúscula.\n
 
 class Texto {
     private:
         string texto;
         void validar (string);
     public:
+        /// Armazena uma string caso o formato seja válido.\n
+        /// Lança exceção caso o formato não sejá válido.
+        ///@param string texto
+        ///@throw invalid_argument
         void setTexto(string);
+        /// Retorna uma string com o valor de texto
+        /// @return string texto
         string getTexto();
 };
 
@@ -115,6 +130,7 @@ inline string Coluna::getValor() const {
 /// Regras de formato:
 /// O código fornecido é válido se representar um dos seguintes valores:
 /// 5, 10, 15 ou 20.
+
 
 class Limite {
  private:
