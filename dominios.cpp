@@ -227,3 +227,56 @@ void Codigo::setValor(string codigo) {
 }
 
 
+////// Métodos da classe Email ///////
+
+void Email::validar(string email){
+    char ponto = '.';
+    char arroba = '@';
+
+    int pos = email.find_first_of(arroba);
+    if (pos == -1)
+        throw invalid_argument("Formato invalido");    
+    string nome = email.substr(0,pos);
+    string dominio = email.substr(pos+1);
+
+    pos = dominio.find_first_of(arroba);
+    if (pos != -1)
+        throw invalid_argument("Caractere invalido");
+
+    if (nome.length() < LIMITEMIN || nome.length() > LIMITEMAXNOME)
+        throw invalid_argument("Nome invalido");
+    if (dominio.length() < LIMITEMIN || dominio.length() > LIMITEMAXDOM)
+        throw invalid_argument("Dominio invalido");
+
+    for (int i = 0; i < email.length(); i++){
+        char charAtual = email[i];
+        char charPosterior = email[i+1];
+
+        if((ChecaCaractere::e_maiuscula_sem_acento(charAtual) == false)
+        && (ChecaCaractere::e_minuscula_sem_acento(charAtual) == false)
+        && (ChecaCaractere::e_digito(charAtual) == false)
+        && (ChecaCaractere::caractere_especial_email(charAtual) == false))
+            throw invalid_argument("Caractere invalido");
+
+        if((charAtual == ponto)
+        && (charPosterior == ponto))
+            throw invalid_argument("Formato invalido");        
+    }
+
+    if (nome.back() == ponto )
+        throw invalid_argument("Formato invalido");
+    else if (dominio[0] == ponto )
+        throw invalid_argument("Formato invalido");
+}
+
+void Email::setEmail(string email){
+    validar(email);
+    this->email = email;
+}
+
+bool ChecaCaractere::caractere_especial_email(char caractere) {
+    caractere_ascii = int(caractere);
+    if (caractere_ascii != '.' && caractere_ascii != '@')
+        return false;
+    return true;
+}
