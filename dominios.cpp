@@ -112,7 +112,7 @@ void Limite::validar(int limite) {
     }
 }
 
-void Limite::setValor(int limite) {
+void Limite::setLimite(int limite) {
     validar(limite);
     this->limite = limite;
 }
@@ -126,7 +126,7 @@ void Coluna::validar(string coluna) {
     }
 }
 
-void Coluna::setValor(string coluna) {
+void Coluna::setColuna(string coluna) {
     validar(coluna);
     this->coluna = coluna;
 }
@@ -144,7 +144,7 @@ void Codigo::validar(string codigo) {
     }
 }
 
-void Codigo::setValor(string codigo) {
+void Codigo::setCodigo(string codigo) {
     validar(codigo);
     this->codigo = codigo;
 }
