@@ -4,66 +4,37 @@
 ////// Métodos da classe Senha ///////
 
 void Senha::validar(string senha) {
-    char minusculas[26] = {'a','b','c','d','e','f','g','h','i','j','k',
-    'l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-    char maiusculas[26] = {'A','B','C','D','E','F','G','H','I','J','K',
-    'L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-    char numeros[10] = {'0','1','2','3','4','5','6','7','8','9'};
-    char especiais[5] = {'.',',',';','?','!'};
     bool temMinuscula = false;
     bool temMaiuscula = false;
     bool temNumero = false;
     bool temEspecial = false;
 
-    if (senha.length() != 5) {
-        throw invalid_argument("Valor invalido");
-    }
-    // Verificação de Caracteres Repetidos.
-    int CurrPos = 0;
-    int incremento;
-    int PosComparada;
-    while (CurrPos < 4) {
-        incremento = 1;
-        PosComparada = CurrPos + incremento;
-        while (PosComparada <= 4) {
-            if (senha[CurrPos] == senha[PosComparada]) {
+    if (senha.length() != 5)
+    throw invalid_argument("Valor invalido");
+
+    for (int i = 0; i < senha.length() - 1; i++){
+        for (int j = i + 1; j < senha.length(); j++){
+            if (senha[i] == senha[j])
                 throw invalid_argument("Valor invalido");
-            }
-            incremento++;
-        }
-        CurrPos++;
-    }
-
-    for (char c1 : senha) {
-        for (char c2 : minusculas) {
-            if (c1 == c2) {
-                temMinuscula = true;
-                break;
-            }
-        }
-        for (char c2 : maiusculas) {
-            if (c1 == c2) {
-                temMaiuscula = true;
-                break;
-            }
-        }
-        for (char c2 : numeros) {
-            if (c1 == c2) {
-                temNumero = true;
-            break;
-            }
-        }
-        for (char c2 : minusculas) {
-            if (c1 == c2) {
-                temEspecial = true;
-                break;
-            }
         }
     }
+    
+    for (int i = 0; i < senha.length(); i++){
+        char charAtual = senha[i];
+    if (ChecaCaractere::e_maiuscula_sem_acento(charAtual) == true)
+        temMaiuscula = true;
+    else if (ChecaCaractere::e_minuscula_sem_acento(charAtual) == true)
+        temMinuscula = true;
+    else if (ChecaCaractere::e_digito(charAtual) == true)
+        temNumero = true;
+    else if (ChecaCaractere::e_pontuacao(charAtual) == true)
+        temEspecial = true;
+    else
+        throw invalid_argument("Caractere invalido");
+    }
 
-    if (!(temMaiuscula && temMinuscula && temNumero && temEspecial)) {
+    if (!(temMaiuscula && temMinuscula && temNumero && temEspecial))
         throw invalid_argument("Valor invalido");
-    }
 }
 
 void Senha::setValor(string senha) {
