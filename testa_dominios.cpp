@@ -131,3 +131,135 @@ int TUSenha::run(){
     tearDown();
     return estado;
 }
+
+///// Métodos de TULimite /////
+
+const int TULimite::VALOR_VALIDO   = 5;
+const int TULimite::VALOR_INVALIDO = 6;
+
+void TULimite::setUp() {
+    limite = new Limite();
+    estado = SUCESSO;
+}
+
+void TULimite::tearDown(){
+    delete limite;
+}
+
+void TULimite::testarCenarioSucesso() {
+    try {
+        limite->setLimite(VALOR_VALIDO);
+        if (limite->getLimite() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao) {
+        estado = FALHA;
+    }
+}
+
+void TULimite::testarCenarioFalha(){
+    try{
+        limite->setLimite(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (limite->getLimite() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+}
+
+int TULimite::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
+
+///// Métodos de TUColuna /////
+
+const string TUColuna::VALOR_VALIDO   = "SOLICITADO";
+const string TUColuna::VALOR_INVALIDO = "EMEXECUCAO";
+
+void TUColuna::setUp() {
+    coluna = new Coluna();
+    estado = SUCESSO;
+}
+
+void TUColuna::tearDown(){
+    delete coluna;
+}
+
+void TUColuna::testarCenarioSucesso() {
+    try {
+        coluna->setColuna(VALOR_VALIDO);
+        if (coluna->getColuna() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao) {
+        estado = FALHA;
+    }
+}
+
+void TUColuna::testarCenarioFalha(){
+    try{
+        coluna->setColuna(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (coluna->getColuna() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+}
+
+int TUColuna::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
+
+///// Métodos de TUCodigo /////
+
+const string TUCodigo::VALOR_VALIDO   = "AB01";
+const string TUCodigo::VALOR_INVALIDO = "AAA1";
+
+void TUCodigo::setUp() {
+    codigo = new Codigo();
+    estado = SUCESSO;
+}
+
+void TUCodigo::tearDown(){
+    delete codigo;
+}
+
+void TUCodigo::testarCenarioSucesso() {
+    try {
+        codigo->setCodigo(VALOR_VALIDO);
+        if (codigo->getCodigo() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao) {
+        estado = FALHA;
+    }
+}
+
+void TUCodigo::testarCenarioFalha(){
+    try{
+        codigo->setCodigo(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (codigo->getCodigo() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+}
+
+int TUCodigo::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
