@@ -14,11 +14,11 @@ class Senha {
         string senha;
         void validar(string);
     public:
-        void setValor(string);
-        string getValor();
+        void setSenha(string);
+        string getSenha();
 };
 
-inline string Senha::getValor() {
+inline string Senha::getSenha() {
     return senha;
 }
 
