@@ -29,5 +29,29 @@ int main(){
                             break;
     }
     
+    TULimite testeLimite;
+    switch(testeLimite.run()) {
+    case TULimite::SUCESSO: cout << "SUCESSO - LIMITE" << endl;
+                            break;
+    case TULimite::FALHA  : cout << "FALHA   - LIMITE" << endl;
+                            break;
+    }
+
+    TUColuna testeColuna;
+    switch(testeColuna.run()) {
+    case TUColuna::SUCESSO: cout << "SUCESSO - COLUNA" << endl;
+                            break;
+    case TUColuna::FALHA  : cout << "FALHA   - COLUNA" << endl;
+                            break;
+    }
+
+    TUCodigo testeCodigo;
+    switch(testeCodigo.run()) {
+    case TUCodigo::SUCESSO: cout << "SUCESSO - CODIGO" << endl;
+                            break;
+    case TUCodigo::FALHA  : cout << "FALHA   - CODIGO" << endl;
+                            break;
+    }
+
     return 0;
 }
