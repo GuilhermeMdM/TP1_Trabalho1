@@ -1,6 +1,8 @@
 #ifndef DOMINIOS_H_INCLUDED
 #define DOMINIOS_H_INCLUDED
 
+#include "auxiliar.hpp"
+
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -51,17 +53,6 @@ inline string Texto::getTexto() {
     return texto;
 }
 
-
-class ChecaCaractere{
-    public:
-        static int caractere_ascii;
-        static char sinais_de_pontuacao[5];
-        static bool e_maiuscula_sem_acento(char);
-        static bool e_minuscula_sem_acento(char);
-        static bool e_pontuacao(char);
-        static bool e_digito (char);
-        static bool e_embranco (char);
-};
 
 // Autor: 211068790
 
