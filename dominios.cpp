@@ -71,54 +71,6 @@ void Senha::setValor(string senha) {
     this ->senha = senha;
 }
 
-
-
-// Métodos da Classe ChecaCaractere //
-
-
-int ChecaCaractere::caractere_ascii = 0;
-char ChecaCaractere::sinais_de_pontuacao[5] = {';', ',', '.', '!', '?'};
-
-bool ChecaCaractere::e_maiuscula_sem_acento(char caractere) {
-    caractere_ascii = static_cast<int>(caractere);
-    if (caractere_ascii < 65 || caractere_ascii > 90) {
-        return false;
-    }
-    return true;
-}
-
-bool ChecaCaractere::e_minuscula_sem_acento(char caractere) {
-    caractere_ascii = static_cast<int>(caractere);
-    if (caractere_ascii < 97 || caractere_ascii > 122) {
-        return false;
-    }
-    return true;
-}
-
-bool ChecaCaractere::e_pontuacao(char caractere) {
-    for (char sinal : sinais_de_pontuacao) {
-        if (caractere == sinal) {
-            return true;
-        }
-    }
-    return false;
-}
-
-bool ChecaCaractere::e_digito(char caractere) {
-    caractere_ascii = static_cast<int>(caractere);
-    if (caractere_ascii < 48 || caractere_ascii > 57) {
-        return false;
-    }
-        return true;
-}
-
-bool ChecaCaractere::e_embranco(char caractere) {
-    if (caractere == ' ') {
-        return true;
-    }
-    return false;
-}
-
 ///////////  Métodos da Classe Texto  ///////////
 
 void Texto::validar(string texto) {
@@ -235,7 +187,7 @@ void Email::validar(string email){
 
     int pos = email.find_first_of(arroba);
     if (pos == -1)
-        throw invalid_argument("Formato invalido");    
+        throw invalid_argument("Formato invalido");
     string nome = email.substr(0,pos);
     string dominio = email.substr(pos+1);
 
@@ -260,7 +212,7 @@ void Email::validar(string email){
 
         if((charAtual == ponto)
         && (charPosterior == ponto))
-            throw invalid_argument("Formato invalido");        
+            throw invalid_argument("Formato invalido");
     }
 
     if (nome.back() == ponto )
