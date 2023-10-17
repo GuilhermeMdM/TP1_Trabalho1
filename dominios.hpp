@@ -61,6 +61,7 @@ class ChecaCaractere{
         static bool e_pontuacao(char);
         static bool e_digito (char);
         static bool e_embranco (char);
+        static bool caractere_especial_email (char);
 };
 
 // Autor: 211068790
