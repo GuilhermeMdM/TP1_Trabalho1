@@ -37,7 +37,7 @@ void Senha::validar(string senha) {
         throw invalid_argument("Valor invalido");
 }
 
-void Senha::setValor(string senha) {
+void Senha::setSenha(string senha) {
     validar(senha);
     this ->senha = senha;
 }
