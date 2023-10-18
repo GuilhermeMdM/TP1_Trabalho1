@@ -42,3 +42,10 @@ bool ChecaCaractere::e_embranco(char caractere) {
     }
     return false;
 }
+
+bool ChecaCaractere::caractere_especial_email(char caractere) {
+    caractere_ascii = int(caractere);
+    if (caractere_ascii != '.' && caractere_ascii != '@')
+        return false;
+    return true;
+}

@@ -14,11 +14,11 @@ class Senha {
         string senha;
         void validar(string);
     public:
-        void setValor(string);
-        string getValor();
+        void setSenha(string);
+        string getSenha();
 };
 
-inline string Senha::getValor() {
+inline string Senha::getSenha() {
     return senha;
 }
 
@@ -72,7 +72,7 @@ class Codigo {
 ///
 /// @return código
 ///
-    string getValor() const;
+    string getCodigo() const;
 ///
 /// Armazena código caso seja válido
 /// Lança exceção caso código informado seja inválido
@@ -80,10 +80,10 @@ class Codigo {
 /// @param codigo
 /// @throw invalid_argument
 ///
-    void setValor(string);
+    void setCodigo(string);
 };
 
-inline string Codigo::getValor() const {
+inline string Codigo::getCodigo() const {
   return codigo;
 }
 
@@ -103,7 +103,7 @@ class Coluna {
 ///
 /// @return coluna
 ///
-    string getValor() const;
+    string getColuna() const;
 ///
 /// Armazena código caso seja válido
 /// Lança exceção caso código informado seja inválido
@@ -111,9 +111,9 @@ class Coluna {
 /// @param coluna
 /// @throw invalid_argument
 ///
-    void setValor(string);
+    void setColuna(string);
 };
-inline string Coluna::getValor() const {
+inline string Coluna::getColuna() const {
   return coluna;
 }
 
@@ -134,7 +134,7 @@ class Limite {
 ///
 /// @return limite
 ///
-    int getValor() const;
+    int getLimite() const;
 ///
 /// Armazena código caso seja válido
 /// Lança exceção caso código informado seja inválido
@@ -142,10 +142,10 @@ class Limite {
 /// @param limite
 /// @throw invalid_argument
 ///
-    void setValor(int);
+    void setLimite(int);
 };
 
-inline int Limite::getValor() const {
+inline int Limite::getLimite() const {
   return limite;
 }
 
