@@ -53,5 +53,25 @@ int main(){
                             break;
     }
 
+    cout << endl << "TESTE DE ENTIDADES" << endl;
+
+    TUQuadro testeQuadro;
+
+    switch(testeQuadro.run()){
+        case TUQuadro::SUCESSO: cout << "SUCESSO - QUADRO" << endl;
+                                break;
+        case TUQuadro::FALHA  : cout << "FALHA   - QUADRO" << endl;
+                                break;
+    }
+
+    TUCartao testeCartao;
+
+    switch(testeCartao.run()){
+        case TUCartao::SUCESSO: cout << "SUCESSO - CARTAO" << endl;
+                                break;
+        case TUCartao::FALHA  : cout << "FALHA   - CARTAO" << endl;
+                                break;
+    }
+
     return 0;
 }
