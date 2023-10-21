@@ -263,3 +263,103 @@ int TUCodigo::run(){
     tearDown();
     return estado;
 }
+
+///// ENTIDADES /////
+
+///// Metodos de TUQuadro /////
+
+const string TUQuadro::VALOR_VALIDO_CODIGO = "AB01";
+const string TUQuadro::VALOR_VALIDO_NOME = "Pedro";
+const string TUQuadro::VALOR_VALIDO_DESCRICAO = "Teste de descricao do kanban";
+const string TUQuadro::VALOR_VALIDO_LIMITE = "5";
+
+void TUQuadro::setUp(){
+    quadro = new Quadro();
+    estado = SUCESSO;
+}
+
+void TUQuadro::tearDown(){
+    delete quadro;
+}
+
+void TUQuadro::testarCenarioSucesso(){
+    Codigo codigo;
+    codigo.setValor(VALOR_VALIDO_CODIGO);
+    quadro->setCodigo(codigo);
+    if(quadro->getCodigo().getValor() != VALOR_VALIDO_CODIGO)
+        estado = FALHA;
+
+    Texto nome;
+    nome.setValor(VALOR_VALIDO_NOME);
+    quadro->setNome(nome);
+    if(quadro->getNome().getValor() != VALOR_VALIDO_NOME)
+        estado = FALHA;
+
+    Texto descricao;
+    descricao.setValor(VALOR_VALIDO_DESCRICAO);
+    quadro->setDescricao(descricao);
+    if(quadro->getDescricao().getValor() != VALOR_VALIDO_DESCRICAO)
+        estado = FALHA;
+
+    Limite limite;
+    limite.setValor(VALOR_VALIDO_LIMITE);
+    quadro->setLimite(limite);
+    if(quadro->getLimite().getValor() != VALOR_VALIDO_LIMITE)
+        estado = FALHA;
+}
+
+int TUQuadro::run(){
+    setUp();
+    testarCenarioSucesso();
+    tearDown();
+    return estado;
+}
+
+///// Metodos de TUCartao /////
+
+const string TUCartao::VALOR_VALIDO_CODIGO = "LV99";
+const string TUCartao::VALOR_VALIDO_NOME = "Mariana";
+const string TUCartao::VALOR_VALIDO_DESCRICAO = "Execucao de metodos";
+const string TUCartao::VALOR_VALIDO_COLUNA = "EM EXECUCAO";
+
+void TUCartao::setUp(){
+    cartao = new Cartao();
+    estado = SUCESSO;
+}
+
+void TUCartao::tearDown(){
+    delete cartao;
+}
+
+void TUCartao::testarCenarioSucesso(){
+    Codigo codigo;
+    codigo.setValor(VALOR_VALIDO_CODIGO);
+    cartao->setCodigo(codigo);
+    if(cartao->getCodigo().getValor() != VALOR_VALIDO_CODIGO)
+        estado = FALHA;
+
+    Texto nome;
+    nome.setValor(VALOR_VALIDO_NOME);
+    cartao->setNome(nome);
+    if(cartao->getNome().getValor() != VALOR_VALIDO_NOME)
+        estado = FALHA;
+
+    Texto descricao;
+    descricao.setValor(VALOR_VALIDO_DESCRICAO);
+    cartao->setDescricao(descricao);
+    if(cartao->getDescricao().getValor() != VALOR_VALIDO_DESCRICAO)
+        estado = FALHA;
+
+    Coluna coluna;
+    coluna.setValor(VALOR_VALIDO_COLUNA);
+    cartao->setColuna(coluna);
+    if(cartao->getColuna().getValor() != VALOR_VALIDO_COLUNA)
+        estado = FALHA;
+}
+
+int TUCartao::run(){
+    setUp();
+    testarCenarioSucesso();
+    tearDown();
+    return estado;
+}
