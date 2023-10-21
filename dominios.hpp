@@ -125,16 +125,16 @@ inline string Coluna::getValor() const {
 
 class Limite {
  private:
-    static const int LIMITE = 5;
-    int limite;
-    void validar(int);
+    static const string LIMITE;
+    string limite;
+    void validar(string);
 
  public:
 /// Retorna o valor da variável limite
 ///
 /// @return limite
 ///
-    int getValor() const;
+    string getValor() const;
 ///
 /// Armazena código caso seja válido
 /// Lança exceção caso código informado seja inválido
@@ -142,10 +142,10 @@ class Limite {
 /// @param limite
 /// @throw invalid_argument
 ///
-    void setValor(int);
+    void setValor(string);
 };
 
-inline int Limite::getValor() const {
+inline string Limite::getValor() const {
   return limite;
 }
 
