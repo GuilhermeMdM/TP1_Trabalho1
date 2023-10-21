@@ -37,7 +37,7 @@ void Senha::validar(string senha) {
         throw invalid_argument("Valor invalido");
 }
 
-void Senha::setSenha(string senha) {
+void Senha::setValor(string senha) {
     validar(senha);
     this ->senha = senha;
 }
@@ -98,7 +98,7 @@ void Texto::validar(string texto) {
     }
 }
 
-void Texto::setTexto(string texto) {
+void Texto::setValor(string texto) {
     validar(texto);
     this->texto = texto;
 }
@@ -112,7 +112,7 @@ void Limite::validar(int limite) {
     }
 }
 
-void Limite::setLimite(int limite) {
+void Limite::setValor(int limite) {
     validar(limite);
     this->limite = limite;
 }
@@ -126,7 +126,7 @@ void Coluna::validar(string coluna) {
     }
 }
 
-void Coluna::setColuna(string coluna) {
+void Coluna::setValor(string coluna) {
     validar(coluna);
     this->coluna = coluna;
 }
@@ -144,7 +144,7 @@ void Codigo::validar(string codigo) {
     }
 }
 
-void Codigo::setCodigo(string codigo) {
+void Codigo::setValor(string codigo) {
     validar(codigo);
     this->codigo = codigo;
 }
@@ -192,7 +192,7 @@ void Email::validar(string email){
         throw invalid_argument("Formato invalido");
 }
 
-void Email::setEmail(string email){
+void Email::setValor(string email){
     validar(email);
     this->email = email;
 }
