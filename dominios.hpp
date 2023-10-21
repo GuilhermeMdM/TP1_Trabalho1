@@ -9,12 +9,27 @@
 
 using namespace std;
 
+// Autor: 221006431
+
+/// @brief Padrão para palavra-chave secreta
+/// @note Regras do formato:\n
+/// Formato: XXXXX\n
+/// "X" é: letra (A-Z,a-z), dígito (0-9), pontuação(',',';','.','?','!') ou espaço em branco.\n
+/// Não há caracteres duplicaos\n
+/// Há pelo menos uma ocorrência de cada tipo de 'X'.
+
 class Senha {
     private:
         string senha;
         void validar(string);
     public:
+        /// Armazena uma string caso o formato seja válido\n
+        /// Lança exceção caso contrário.
+        /// @param string
+        /// @throw invalid_argument
         void setValor(string);
+        /// Retorna o valor da váriavel senha.
+        /// @return string senha.
         string getValor();
 };
 
@@ -22,7 +37,7 @@ inline string Senha::getValor() {
     return senha;
 }
 
-//Autor: 211038217
+// Autor: 211038217
 
 /// @brief Padrão para informação em forma de caracteres
 /// @note Regras do formato:\n
@@ -56,8 +71,8 @@ inline string Texto::getValor() {
 
 // Autor: 211068790
 
-/// Padrão para representação de código
-/// Regras de formato:
+/// @brief Padrão para representação de um identificador único de algo.
+/// @note Regras de formato:
 /// O código fornecido é válido se obedecer o formato LLDD,
 /// em que L é letra maiúscula (A - Z) e D é dígito (0 – 9).
 
@@ -74,8 +89,8 @@ class Codigo {
 ///
     string getValor() const;
 ///
-/// Armazena código caso seja válido
-/// Lança exceção caso código informado seja inválido
+/// Armazena código caso seja válido.\n
+/// Lança exceção caso código informado seja inválido.
 ///
 /// @param codigo
 /// @throw invalid_argument
@@ -87,8 +102,8 @@ inline string Codigo::getValor() const {
   return codigo;
 }
 
-/// Padrão para representação de coluna
-/// Regras de formato:
+/// @brief Padrão para representação de uma coletânea de tarefas de acordo com seu estado de execução.\n
+/// @note Regras de formato:\n
 /// O código fornecido é válido se for um dos seguintes nomes:
 /// "SOLICITADO", "EM EXECUCAO" ou "CONCLUIDO".
 
@@ -105,8 +120,8 @@ class Coluna {
 ///
     string getValor() const;
 ///
-/// Armazena código caso seja válido
-/// Lança exceção caso código informado seja inválido
+/// Armazena código caso seja válido.\n
+/// Lança exceção caso código informado seja inválido.
 ///
 /// @param coluna
 /// @throw invalid_argument
@@ -117,9 +132,9 @@ inline string Coluna::getValor() const {
   return coluna;
 }
 
-/// Padrão para representação de limite
-/// Regras de formato:
-/// O código fornecido é válido se representar um dos seguintes valores:
+/// @brief Padrão para representação de um número que define uma quantidade máxima de algo.
+/// @note Regras de formato:
+/// O código fornecido é válido se representar um dos seguintes valores:\n
 /// 5, 10, 15 ou 20.
 
 
@@ -136,8 +151,8 @@ class Limite {
 ///
     string getValor() const;
 ///
-/// Armazena código caso seja válido
-/// Lança exceção caso código informado seja inválido
+/// Armazena código caso seja válido.\n
+/// Lança exceção caso código informado seja inválido.\n
 ///
 /// @param limite
 /// @throw invalid_argument
@@ -149,7 +164,16 @@ inline string Limite::getValor() const {
   return limite;
 }
 
+// Autor: 200069306
 
+/// @brief Padrão para representação de um identificador de acesso do usuário
+/// @note Regras do Formato:\n
+/// Formato: nome@dominio\n
+/// nome é composto por 2 a 10 caracteres.\n
+/// dominio é composto por 2 a 20 caracteres.\n
+/// Cada caractere é letra (A-Z ou a-z), dígito (0-9) ou ponto (.).\n
+/// Caractere @ não pode ser imediatamente precedido ou sucedido por ponto (.).\n
+/// Não há pontos (.) em sequência.
 class Email {
     private:
         string email;
@@ -158,7 +182,16 @@ class Email {
         static const int LIMITEMAXNOME = 10;
         static const int LIMITEMAXDOM = 20;
     public:
+    /// Armazena email caso o formato seja válido.\n
+    /// Lança exceção caso formato informado seja inválido.\n
+    ///
+    /// @param email
+    /// @throw invalid_argument
         void setValor(string);
+    /// Retorna o valor da variável email
+    ///
+    /// @return email
+    ///
         string getValor();
 };
 
