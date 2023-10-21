@@ -157,13 +157,20 @@ void Email::validar(string email){
     char ponto = '.';
     char arroba = '@';
 
-    int pos = email.find_first_of(arroba);
+    int pos = email.find("..");
+    if (pos != -1)
+        throw invalid_argument("Caractere invalido");
+
+    pos = email.find_first_of(arroba);
     if (pos == -1)
         throw invalid_argument("Formato invalido");
+    else if (email[pos-1] == ponto || email[pos+1] == ponto)
+        throw invalid_argument("Formato invalido");
+
     string nome = email.substr(0,pos);
     string dominio = email.substr(pos+1);
 
-    pos = dominio.find_first_of(arroba);
+    pos = dominio.find(arroba);
     if (pos != -1)
         throw invalid_argument("Caractere invalido");
 
@@ -181,19 +188,5 @@ void Email::validar(string email){
         && (ChecaCaractere::e_digito(charAtual) == false)
         && (ChecaCaractere::caractere_especial_email(charAtual) == false))
             throw invalid_argument("Caractere invalido");
-
-        if((charAtual == ponto)
-        && (charPosterior == ponto))
-            throw invalid_argument("Formato invalido");
     }
-
-    if (nome.back() == ponto )
-        throw invalid_argument("Formato invalido");
-    else if (dominio[0] == ponto )
-        throw invalid_argument("Formato invalido");
-}
-
-void Email::setValor(string email){
-    validar(email);
-    this->email = email;
 }
