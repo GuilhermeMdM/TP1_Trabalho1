@@ -58,13 +58,13 @@ class Texto {
         /// Lança exceção caso o formato não sejá válido.
         ///@param string texto
         ///@throw invalid_argument
-        void setTexto(string);
+        void setValor(string);
         /// Retorna uma string com o valor de texto
-        /// @return texto
-        string getTexto();
+        /// @return string texto
+        string getValor();
 };
 
-inline string Texto::getTexto() {
+inline string Texto::getValor() {
     return texto;
 }
 
@@ -140,16 +140,16 @@ inline string Coluna::getValor() const {
 
 class Limite {
  private:
-    static const int LIMITE = 5;
-    int limite;
-    void validar(int);
+    static const string LIMITE;
+    string limite;
+    void validar(string);
 
  public:
 /// Retorna o valor da variável limite
 ///
 /// @return limite
 ///
-    int getValor() const;
+    string getValor() const;
 ///
 /// Armazena código caso seja válido.\n
 /// Lança exceção caso código informado seja inválido.\n
@@ -157,10 +157,10 @@ class Limite {
 /// @param limite
 /// @throw invalid_argument
 ///
-    void setValor(int);
+    void setValor(string);
 };
 
-inline int Limite::getValor() const {
+inline string Limite::getValor() const {
   return limite;
 }
 
@@ -187,15 +187,15 @@ class Email {
     ///
     /// @param email
     /// @throw invalid_argument
-        void setEmail(string);
+        void setValor(string);
     /// Retorna o valor da variável email
     ///
     /// @return email
     ///
-        string getEmail();
+        string getValor();
 };
 
-inline string Email::getEmail(){
+inline string Email::getValor(){
     return email;
 }
 
