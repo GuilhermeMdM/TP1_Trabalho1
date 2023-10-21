@@ -18,7 +18,7 @@ class Senha {
         string getValor();
 };
 
-inline string Senha::getSenha() {
+inline string Senha::getValor() {
     return senha;
 }
 
@@ -49,7 +49,7 @@ class Texto {
         string getValor();
 };
 
-inline string Texto::getTexto() {
+inline string Texto::getValor() {
     return texto;
 }
 
@@ -83,7 +83,7 @@ class Codigo {
     void setValor(string);
 };
 
-inline string Codigo::getCodigo() const {
+inline string Codigo::getValor() const {
   return codigo;
 }
 
@@ -113,7 +113,7 @@ class Coluna {
 ///
     void setValor(string);
 };
-inline string Coluna::getColuna() const {
+inline string Coluna::getValor() const {
   return coluna;
 }
 
@@ -145,7 +145,7 @@ class Limite {
     void setValor(int);
 };
 
-inline int Limite::getLimite() const {
+inline int Limite::getValor() const {
   return limite;
 }
 
@@ -162,7 +162,7 @@ class Email {
         string getValor();
 };
 
-inline string Email::getEmail(){
+inline string Email::getValor(){
     return email;
 }
 
