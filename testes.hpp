@@ -43,8 +43,8 @@ public:
 // Classe para teste unitário da classe Limite
 class TULimite {
 private:
-    const static int VALOR_VALIDO;
-    const static int VALOR_INVALIDO;
+    const static string VALOR_VALIDO;
+    const static string VALOR_INVALIDO;
     Limite *limite;                         // Referência para unidade em teste.
     int estado;                             // Estado do teste.
     void setUp();                           // Método para criar unidade em teste.
