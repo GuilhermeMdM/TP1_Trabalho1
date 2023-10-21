@@ -190,3 +190,8 @@ void Email::validar(string email){
             throw invalid_argument("Caractere invalido");
     }
 }
+
+void Email::setValor(string email){
+    validar(email);
+    this->email = email;
+}
