@@ -14,8 +14,8 @@ class Senha {
         string senha;
         void validar(string);
     public:
-        void setSenha(string);
-        string getSenha();
+        void setValor(string);
+        string getValor();
 };
 
 inline string Senha::getSenha() {
@@ -43,10 +43,10 @@ class Texto {
         /// Lança exceção caso o formato não sejá válido.
         ///@param string texto
         ///@throw invalid_argument
-        void setTexto(string);
+        void setValor(string);
         /// Retorna uma string com o valor de texto
         /// @return string texto
-        string getTexto();
+        string getValor();
 };
 
 inline string Texto::getTexto() {
@@ -72,7 +72,7 @@ class Codigo {
 ///
 /// @return código
 ///
-    string getCodigo() const;
+    string getValor() const;
 ///
 /// Armazena código caso seja válido
 /// Lança exceção caso código informado seja inválido
@@ -80,7 +80,7 @@ class Codigo {
 /// @param codigo
 /// @throw invalid_argument
 ///
-    void setCodigo(string);
+    void setValor(string);
 };
 
 inline string Codigo::getCodigo() const {
@@ -103,7 +103,7 @@ class Coluna {
 ///
 /// @return coluna
 ///
-    string getColuna() const;
+    string getValor() const;
 ///
 /// Armazena código caso seja válido
 /// Lança exceção caso código informado seja inválido
@@ -111,7 +111,7 @@ class Coluna {
 /// @param coluna
 /// @throw invalid_argument
 ///
-    void setColuna(string);
+    void setValor(string);
 };
 inline string Coluna::getColuna() const {
   return coluna;
@@ -134,7 +134,7 @@ class Limite {
 ///
 /// @return limite
 ///
-    int getLimite() const;
+    int getValor() const;
 ///
 /// Armazena código caso seja válido
 /// Lança exceção caso código informado seja inválido
@@ -142,7 +142,7 @@ class Limite {
 /// @param limite
 /// @throw invalid_argument
 ///
-    void setLimite(int);
+    void setValor(int);
 };
 
 inline int Limite::getLimite() const {
@@ -158,8 +158,8 @@ class Email {
         static const int LIMITEMAXNOME = 10;
         static const int LIMITEMAXDOM = 20;
     public:
-        void setEmail(string);
-        string getEmail();
+        void setValor(string);
+        string getValor();
 };
 
 inline string Email::getEmail(){
