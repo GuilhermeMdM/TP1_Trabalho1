@@ -105,14 +105,15 @@ void Texto::setValor(string texto) {
 
 ////// Métodos da classe Limite ///////
 
-void Limite::validar(int limite) {
-    if (limite != LIMITE && limite != 2*LIMITE && limite != 3*LIMITE
-                         && limite != 4*LIMITE) {
+void Limite::validar(string limite) {
+    if (limite != "5"
+    &&  limite != "10"
+    &&  limite != "15"
+    &&  limite != "20") 
         throw invalid_argument("Limite inválido.");
-    }
 }
 
-void Limite::setValor(int limite) {
+void Limite::setValor(string limite) {
     validar(limite);
     this->limite = limite;
 }
