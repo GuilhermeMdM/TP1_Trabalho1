@@ -28,7 +28,7 @@ class Senha {
         /// @param string
         /// @throw invalid_argument
         void setValor(string);
-        /// Retorna o valor da váriavel senha.
+        /// Obtém o valor da váriavel senha.
         /// @return string senha.
         string getValor();
 };
@@ -59,7 +59,7 @@ class Texto {
         ///@param string texto
         ///@throw invalid_argument
         void setValor(string);
-        /// Retorna uma string com o valor de texto
+        /// Obtém uma string com o valor de texto
         /// @return string texto
         string getValor();
 };
@@ -83,7 +83,7 @@ class Codigo {
 
  public:
 ///
-/// Retorna o valor da variável codigo
+/// Obtém o valor da variável codigo
 ///
 /// @return código
 ///
@@ -114,7 +114,7 @@ class Coluna {
 
  public:
 ///
-/// Retorna código referente à variável coluna
+/// Obtém código referente à variável coluna
 ///
 /// @return coluna
 ///
@@ -145,7 +145,7 @@ class Limite {
     void validar(string);
 
  public:
-/// Retorna o valor da variável limite
+/// Obtém o valor da variável limite
 ///
 /// @return limite
 ///
@@ -188,7 +188,7 @@ class Email {
     /// @param email
     /// @throw invalid_argument
         void setValor(string);
-    /// Retorna o valor da variável email
+    /// Obtém o valor da variável email
     ///
     /// @return email
     ///

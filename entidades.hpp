@@ -5,7 +5,9 @@
 #include <string>
 
 using namespace std;
+// Autor: 200069306
 
+/// @brief Padrão para representação de um quadro Kanban
 class Quadro {
     private:
         Codigo codigo;
@@ -13,13 +15,29 @@ class Quadro {
         Texto descricao;
         Limite limite;
     public:
+        /// Armazena representação de um identificador alfanumérico para o quadro.
+        /// @param Codigo
         void setCodigo(const Codigo&);
+        /// Obtém o identificador do quadro.
+        /// @return Codigo
         Codigo getCodigo()const;
+        /// Armazena uma representação nominal.
+        /// @param Texto
         void setNome(const Texto&);
+        /// Obtém o nome do quadro.
+        /// @return Texto
         Texto getNome() const;
+        /// Armazena uma representação textual da finalidade do quadro.
+        /// @param Texto
         void setDescricao(const Texto&);
+        /// Obtém a descrição do quadro
+        /// @return Texto
         Texto getDescricao() const;
+        /// Armazena uma representação de uma quantidade máxima de Cartões.
+        /// @param Limite
         void setLimite(const Limite&);
+        /// Obtém uma representação da quantidade máxima
+        /// @return Limite
         Limite getLimite() const;
 };
 
@@ -55,6 +73,8 @@ inline Limite Quadro::getLimite() const {
     return limite;
 }
 
+// Autor: 200069306
+/// @brief Padrão para representação de um cartão Kanban.
 class Cartao {
     private:
         Codigo codigo;
@@ -62,13 +82,29 @@ class Cartao {
         Texto descricao;
         Coluna coluna;
     public:
+        /// Armazena representação de um identificador alfanumérico para o cartão.
+        /// @param Codigo
         void setCodigo(const Codigo&);
+        /// Obtém o identificador do cartão.
+        /// @return Codigo
         Codigo getCodigo()const;
+        /// Armazena uma representação nominal.
+        /// @param Texto
         void setNome(const Texto&);
+        /// Obtém o nome do cartão.
+        /// @return Texto
         Texto getNome() const;
+        /// Armazema uma representação textual da finalidade do cartão.
+        /// @param Texto
         void setDescricao(const Texto&);
+        /// Obtém a descrição do cartão
+        /// @return Texto
         Texto getDescricao() const;
+        /// Armazena a representação de status de uma tarefa descrita no cartão.
+        /// @param Coluna
         void setColuna(const Coluna&);
+        /// Obtém o status do cartão
+        /// @return Coluna
         Coluna getColuna() const;
 };
 
@@ -104,17 +140,31 @@ inline Coluna Cartao::getColuna() const {
     return coluna;
 }
 
+// Autor: 211068790
+/// @brief Padrão para representação de uma conta de usuário.
 class Conta {
   private:
     Email email;
     Texto nome;
     Senha senha;
   public:
+    /// Armazena uma representação de email
+    /// @param Email
     void setEmail(const Email&);
+    /// Obtém o email da conta correspondente
+    /// @return Email
     Email getEmail() const;
+    /// Armazena uma representação nominal.
+    /// @param Texto
     void setNome(const Texto&);
+    /// Obtém o nome do cartão.
+    /// @return Texto
     Texto getNome() const;
+    /// Armazena palavra-chave para acesso a uma conta
+    /// @param Senha
     void setSenha(const Senha&);
+    /// Obtém a palavra-chave de acesso desta conta.
+    /// @return Senha
     Senha getSenha() const;
 };
 
