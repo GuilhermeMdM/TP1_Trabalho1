@@ -151,4 +151,28 @@ public:
     int run();                              // M�todo para executar teste.
 };
 
+// Classe para teste da Classe Conta
+
+class TUConta {
+  private:
+    static const string VALOR_VALIDO_EMAIL;   // Definição de constante
+                                              // para evitar número mágico.
+    static const string VALOR_VALIDO_NOME;
+    static const string VALOR_VALIDO_SENHA;
+    Conta *conta;                             // Referência para unidade
+                                              // em teste.
+    int estado;                               // Estado do teste.
+    void setUp();                             // Método para criar unidade
+                                              // em teste.
+    void tearDown();                          // Método para destruir unidade
+                                              // em teste.
+    void testarCenarioSucesso();              // Cenário de teste.
+  public:
+    static const int SUCESSO =  0;            // Definição de constante para
+                                              // reportar resultado de teste.
+    static const int FALHA   = -1;            // Definição de constante para
+                                              // reportar resultado de teste.
+    int run();                                // Método para executar teste.
+};
+
 #endif // TESTE_H_INCLUDED
