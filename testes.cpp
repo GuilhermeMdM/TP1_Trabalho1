@@ -363,3 +363,45 @@ int TUCartao::run(){
     tearDown();
     return estado;
 }
+
+///// Metodos de TUConta /////
+
+const string TUConta::VALOR_VALIDO_EMAIL = "aa@g.com";
+const string TUConta::VALOR_VALIDO_NOME = "Paulo";
+const string TUConta::VALOR_VALIDO_SENHA = "Am8*B";
+
+void TUConta::setUp() {
+    conta = new Conta();
+    estado = SUCESSO;
+}
+
+void TUConta::tearDown() {
+    delete conta;
+}
+
+void TUConta::testarCenarioSucesso() {
+    Email email;
+    email.setValor(VALOR_VALIDO_EMAIL);
+    conta->setEmail(email);
+    if (conta->getEmail().getValor() != VALOR_VALIDO_EMAIL)
+        estado = FALHA;
+
+    Texto nome;
+    nome.setValor(VALOR_VALIDO_NOME);
+    conta->setNome(nome);
+    if (conta->getNome().getValor() != VALOR_VALIDO_NOME)
+        estado = FALHA;
+
+    Senha senha;
+    senha.setValor(VALOR_VALIDO_SENHA);
+    conta->setSenha(senha);
+    if (conta->getSenha().getValor() != VALOR_VALIDO_SENHA)
+        estado = FALHA;
+}
+
+int TUConta::run() {
+    setUp();
+    testarCenarioSucesso();
+    tearDown();
+    return estado;
+}
