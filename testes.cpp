@@ -368,7 +368,7 @@ int TUCartao::run(){
 
 const string TUConta::VALOR_VALIDO_EMAIL = "aa@g.com";
 const string TUConta::VALOR_VALIDO_NOME = "Paulo";
-const string TUConta::VALOR_VALIDO_SENHA = "Am8*B";
+const string TUConta::VALOR_VALIDO_SENHA = "Am8!B";
 
 void TUConta::setUp() {
     conta = new Conta();
